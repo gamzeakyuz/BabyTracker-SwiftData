@@ -1,14 +1,14 @@
-**🍼 BabyTracker - Akıllı Bebek Gelişim Takipçisi**
-
 [![Swift](https://img.shields.io/badge/Swift-5.10-orange.svg?style=flat&logo=swift)](https://developer.apple.com/swift/)
 [![Platform](https://img.shields.io/badge/Platform-iOS%2017.0%2B-blue.svg?style=flat&logo=apple)](https://developer.apple.com/ios/)
 [![Storage](https://img.shields.io/badge/Storage-SwiftData-lightgrey.svg?style=flat&logo=icloud)](https://developer.apple.com/xcode/swiftdata/)
 [![Charts](https://img.shields.io/badge/Charts-Swift%20Charts-red.svg?style=flat)](https://developer.apple.com/documentation/charts)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat)](LICENSE)
 
-**BabyTracker**, ebeveynlerin bebeklerinin günlük rutinlerini, fiziksel gelişimlerini ve sağlık süreçlerini takip etmelerini sağlayan kapsamlı, **çevrimdışı öncelikli (offline-first)** bir iOS uygulamasıdır.
+**🍼 BabyTracker - Smart Baby Development Tracker**
 
-En güncel Apple teknolojileri (**SwiftUI, SwiftData, Swift Charts**) kullanılarak geliştirilmiş; **MVVM** mimarisi, **Unit/UI Testleri** ve **Clean Code** prensiplerine sadık kalınarak tasarlanmıştır.
+**BabyTracker** is a comprehensive **offline-first** iOS application that enables parents to track their babies’ daily routines, physical development, and health processes.
+
+It is developed using the latest Apple technologies **(SwiftUI, SwiftData, Swift Charts)** and designed in accordance with **MVVM architecture, Unit/UI Tests, and Clean Code principles.**
 
 ---
 
@@ -28,41 +28,44 @@ En güncel Apple teknolojileri (**SwiftUI, SwiftData, Swift Charts**) kullanıla
 
 
 ---
+## ✨ Key Features
 
-## ✨ Temel Özellikler
+### 🗓️ Daily Routine & Data Management
+* **Detailed Tracking:** Feeding (Breast Milk / Formula), Sleep, Diaper Changes, and Solid Food logs.
+* **Practical Data Management:** Any listed record (feeding, sleep, etc.) can be easily deleted via a **Long Press** menu.
+* **Profile Management:** Users can permanently delete the baby profile and **all associated historical data with a single tap**.
 
-### 🗓️ Günlük Rutin Yönetimi
-* **Detaylı Takip:** Beslenme (Anne Sütü/Mama), Uyku, Alt Değiştirme ve Ek Gıda kayıtları.
-* **Akıllı Listeleme:** Kayıtlar günlere göre otomatik gruplanır, özet bilgiler (toplam ml, süre vb.) başlıkta gösterilir.
-* **Hızlı Aksiyonlar:** Listeden kaydırma hareketiyle (Swipe Actions) silme ve düzenleme.
+### 🎨 UX
+* **Dark & Light Mode:** Automatically adapts to system settings, with **Dark Mode** support to reduce eye strain during night feedings.
+* **Smart Listing:** Records are automatically grouped by day, with summary information (total ml, duration, etc.) displayed in headers.
+* **Visual Cues:** Customized icons and color codes for each activity type.
 
-### 📈 Büyüme Analizi (Swift Charts)
-* **WHO Standartları:** Bebeğin verileri, Dünya Sağlık Örgütü'nün (WHO) persentil eğrileriyle karşılaştırmalı olarak çizilir.
-* **Dinamik Grafikler:** Kilo, Boy ve Baş Çevresi için `SegmentedPicker` ile anlık grafik değişimi.
-* **Görsel Tutarlılık:** Veri noktaları ve referans eğrileri için özelleştirilmiş `Chart` bileşenleri.
+### 📈 Growth Analysis (Swift Charts)
+* **WHO Standards:** Baby’s data is plotted against World Health Organization (WHO) percentile curves for comparison.
+* **Dynamic Charts:** Instant chart switching for Weight, Height, and Head Circumference using `SegmentedPicker`
+* **Visual Consistency:** Customized `Chart` components for data points and reference curves.
 
-### 🩺 Sağlık ve Hatırlatıcılar
-* **Aşı Takvimi:** Aylara göre yapılması gereken aşıların takibi.
-* **Diş Çıkarma:** Görsel ağız şeması üzerinde çıkan dişlerin işaretlenmesi.
-* **Bildirimler:** İlaç ve rutinler için zengin içerikli (görselli) yerel bildirimler.
+### 🩺 Health & Reminders
+* **Vaccination Schedule:** Track required vaccinations by month.
+* **Teething:** Mark emerging teeth on a visual mouth diagram.
+* **Notifications:** Rich local notifications (with visuals) for medications and routines.
 
 ---
 
-## 🛠️ Teknik Altyapı ve Mimari
+## 🛠️ Technical Infrastructure & Architecture
 
-Proje **%100 SwiftUI** ile geliştirilmiştir ve modern iOS geliştirme pratiklerini içerir.
-
-* **SwiftData & Persistence:** * Veri modellemesi için `@Model` makroları.
-  * Klasör izin hatalarını önleyen özel `FileManager` ve `ModelContainer` başlatma (init) mekanizması.
+* **SwiftData & Persistence:**
+* * `@Model`  macros for data modeling.
+  * Custom `FileManager` and `ModelContainer` initialization mechanisms to prevent folder permission errors.
 * **Swift Charts:**
-  * Karmaşık veri setlerini görselleştirmek için `LineMark` ve `RuleMark` kullanımı.
-  * `CatmullRom` interpolasyonu ile pürüzsüz eğriler.
-* **Mimari Yaklaşım:**
-  * **View Extraction:** Karmaşık görünümler (`DailyRoutineView`, `AddLogSheet`) alt bileşenlere ayrıldı.
-  * **Reusable Modifiers:** Kartlar (`CardModifier`) ve etiketler (`TagStyle`) için özel ViewModifier'lar.
-  * **Extensions:** Tarih formatlama ve String dönüşümleri için merkezi uzantılar.
-* **Test Otomasyonu:**
-  * **XCTest:** Profil oluşturma ve veri ekleme akışlarını doğrulayan UI Testleri.
-  * `accessibilityIdentifier` kullanılarak test edilebilir UI tasarımı.
+  * Use of `LineMark` and `RuleMark` for visualizing complex datasets.
+  * Smooth curves with `CatmullRom` interpolation.
+* **Architectural Approach:**
+  * **View Extraction:** Complex views (`DailyRoutineView`, `AddLogSheet`) are broken down into subcomponents.
+  * **Reusable Modifiers:** Custom ViewModifiers for cards (`CardModifier`) ve tags (`TagStyle`)
+  * **Extensions:** Centralized extensions for date formatting and string conversions.
+* **Test Automation:**
+  * **XCTest:** UI tests validating profile creation and data entry flows.
+  *  Testable UI design using `accessibilityIdentifier`.
 
 ---
